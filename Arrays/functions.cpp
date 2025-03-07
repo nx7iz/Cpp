@@ -8,7 +8,11 @@ void printNumbers(int numbers[], int size) {
   }
 }
 
+// size_t = unsigned long long
+
 int main() {
-  int numbers[] = { 10, 20, 30 };
-  printNumbers(numbers, size(numbers));
+  // int numbers[] = { 10, 20, 30 };
+  // printNumbers(numbers, size(numbers));
+  
+
 }
