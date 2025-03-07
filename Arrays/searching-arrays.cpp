@@ -2,24 +2,29 @@
 
 using namespace std;
 // Bubble Sort
+
+void swap(int i, int j, int numbers[]) {
+  int temp = numbers[i]; // temp = 2
+  numbers[i] = numbers[j];
+  numbers[j] = temp;
+}
+
 void bubbleSort(int numbers[], int size) {
-  for (int i = 0; i < size; i++) {
+  for (int pass = 0; pass < size; pass++) {
 // 8 , 2 , 4 , 1 , 3
-    for (int j = 1; j < size; j++) {
-      if (numbers[j - 1] > numbers[j]) {
-        int temp = numbers[j]; // temp = 2
-        numbers[j] = numbers[j - 1];
-        numbers[j - 1] = temp;
+    for (int i = 1; i < size; i++) {
+      if (numbers[i] < numbers[i - 1]) {
+        swap(i, i - 1, numbers);
       }
     }
   }
-  for (int i = 0; i < size; i++) 
-    cout << numbers[i] << " ";
 }
-int main() {
-  int numbers[] = { 2, 8, 4, 1, 3 };
-  bubbleSort(numbers, size(numbers));
 
+int main() {
+  int numbers[] = { 8, 2, 4, 1, 3 }; 
+  bubbleSort(numbers, size(numbers));
+  for (auto number: numbers) 
+    cout << number << endl;
 }
 
 // // Linear search 
