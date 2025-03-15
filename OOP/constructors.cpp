@@ -1,33 +1,18 @@
 #include <iostream>
 
 using namespace std;
-// Copy constructor
-class Car {
-public:
-  string name;
-  int modelYear;
 
-  Car (string a, int y) {
-    name = a;
-    modelYear = y;
-  }
-  // Copy constructor
-  Car (Car &obj) {
-    name = obj.name;
-    modelYear = obj.modelYear;
-  }
-  void display() {
-    cout << "Brand: " << name << "\nModel: " << modelYear << endl; 
+class Animal {
 
-  }
 };
 
 int main() {
-  Car info("Pagani", 2019);
-  Car info2 = info;
-  info.display();
-  info2.display();
+  Animal animal;
+  cout << "Animal created." << endl;
 }
+
+
+
 
 
 // // 1. Default Constructor
@@ -49,8 +34,8 @@ int main() {
 //   int modelYear;
 
 //   Car (string name, int modelYear) {
-//     this ->name = name;
-//     this ->modelYear = modelYear;
+//     this->name = name;
+//     this->modelYear = modelYear;
 //   }
 
 //   void display() {
@@ -80,4 +65,32 @@ int main() {
 // int main() {
 //   Car info;
 
+// }
+
+// // 4. Copy constructor
+// class Car {
+// public:
+//   string name;
+//   int modelYear;
+
+//   Car (string a, int y) {
+//     name = a;
+//     modelYear = y;
+//   }
+//   // Copy constructor
+//   Car (Car &obj) {
+//     name = obj.name;
+//     modelYear = obj.modelYear;
+//   }
+//   void display() {
+//     cout << "Brand: " << name << "\nModel: " << modelYear << endl; 
+
+//   }
+// };
+
+// int main() {
+//   Car info("Pagani", 2019);
+//   Car info2 = info;
+//   info.display();
+//   info2.display();
 // }
