@@ -2,13 +2,32 @@
 
 using namespace std;
 
-class Animal {
-
+class Book {
+public:
+  string title;
+  string author;
+  
+  Book(string title, string author) {
+    cout << "Parameterized constructor called" << endl;
+    this->title = title;
+    this->author = author;
+    cout << "Title: " << title << ", Author: " << author << endl;
+  }
+  
+  Book (Book& source) {
+    cout << "Copy constructor called" << endl;
+    this->title = source.title;
+    this->author = source.author;
+  }
+  
+  void displayDetails() {
+  }
 };
 
 int main() {
-  Animal animal;
-  cout << "Animal created." << endl;
+  Book book("In Cold Blood", "Truman Capote");
+  // book.displayDetails();
+  Book book2 = book;
 }
 
 
@@ -16,24 +35,24 @@ int main() {
 
 
 // // 1. Default Constructor
-// class Car {
+// class Book {
 // public:
 
 // };
 
 // int main() {
-//   Car name;
+//   Book name;
 //   cout << "Done" << endl;
 // }
 
 
 // // 2. Parameterized constructor
-// class Car {
+// class Book {
 // public:
 //   string name;
 //   int modelYear;
 
-//   Car (string name, int modelYear) {
+//   Book (string name, int modelYear) {
 //     this->name = name;
 //     this->modelYear = modelYear;
 //   }
@@ -44,41 +63,41 @@ int main() {
 // };
 
 // int main() {
-//   Car info("BMW", 2019);
+//   Book info("BMW", 2019);
 //   // cout << "Brand: " << info.name << "\nModel: " << info.modelYear << endl;
 //   info.display();
 // }
 
 
 // // 3. No-Argument constructor
-// class Car {
+// class Book {
 // public:
 //   string name;
 //   int modelYear;
 
-//   Car () {
+//   Book () {
 //     cout << "Brand: " << name << "\nModel: " << modelYear << endl; 
 //   }
 
 // };
 
 // int main() {
-//   Car info;
+//   Book info;
 
 // }
 
 // // 4. Copy constructor
-// class Car {
+// class Book {
 // public:
 //   string name;
 //   int modelYear;
 
-//   Car (string a, int y) {
+//   Book (string a, int y) {
 //     name = a;
 //     modelYear = y;
 //   }
 //   // Copy constructor
-//   Car (Car &obj) {
+//   Book (Book &obj) {
 //     name = obj.name;
 //     modelYear = obj.modelYear;
 //   }
@@ -89,8 +108,8 @@ int main() {
 // };
 
 // int main() {
-//   Car info("Pagani", 2019);
-//   Car info2 = info;
+//   Book info("Pagani", 2019);
+//   Book info2 = info;
 //   info.display();
 //   info2.display();
 // }
