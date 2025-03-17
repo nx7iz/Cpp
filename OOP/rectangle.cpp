@@ -24,26 +24,28 @@ functions resize()
 class Rectangle {
 public:
 
-  void draw() {
+  void draw() const {
     cout << "Drawing a rectangle" << endl;
     cout << "Dimensions: " << width << ", " << height << endl;
   }
   
-  int getArea() {
+  int getArea() const {
     return width * height;
   }
+
   // Getter (accessor)
-  int getWidth() {
+  int getWidth() const {
     return width;
   }
-  // Setter (mutator -- > changer)
+
+  // Setter (mutator --> changer(changable))
   void setWidth(int width) {
     if (width < 0) 
       throw invalid_argument("width");
     this->width = width;
   }
   
-  int getHeight() {
+  int getHeight() const {
     return height;
   }
 
@@ -53,6 +55,9 @@ public:
     this->height = height;
   }
 
+  static int getObjectCount() {
+    return objectsCount;
+  }
   // Rectangle(int width, int height) : width{width}, height{height} { // --> member intialization list
   
   // Default constructor
@@ -60,37 +65,60 @@ public:
 
   // Parameterized constructor
   Rectangle(int width, int height) {
+    objectsCount++;
     cout << "Constructing a Rectangle" << endl;
     setWidth(width);
     setHeight(height);
   }
+
   Rectangle(int width, int height, const string& color) : Rectangle(width, height) {
     cout << "Constructing a Rectangle with color" << endl;
     this->color = color;
   }
+
   // Copy constructor
-  // Rectangle(const Rectangle& source) = delete {
-  //   cout << "Rectangle copied" << endl;
-  //   this->width = source.width;
-  //   this->height = source.height;
-  //   this->color = source.color;
-  // }
+  Rectangle(const Rectangle& source) {
+    cout << "Rectangle copied" << endl;
+    this->width = source.width;
+    this->height = source.height;
+    this->color = source.color;
+  }
+
+  ~Rectangle() { // to free the memory used by object
+    cout << "Destructor called" << endl;
+  }
 
 private:
   int width = 0;
   int height = 0;
   string color;
 
+  static int objectsCount;
 };
 
 void showRectangle (Rectangle rectangle) {
 
 }
 
+int Rectangle::objectsCount = 0;
+
 int main() {
-  Rectangle first{10, 20, "red"};
-  Rectangle second = first;
-  showRectangle(first);
+  // const Rectangle rectangle;
+  // Rectangle rectangle;
+
+  // P.1. Pointers
+  // auto* rectangle = new Rectangle(10, 20);
+  // rectangle->draw();
+  // delete rectangle;
+  // rectangle = nullptr;
+
+  // Rectangle first{ 10, 20 };
+  // Rectangle second{ 40, 20 };
+  // cout << "Rectangles: " << Rectangle::getObjectCount() << endl;
+
+  // Rectangle first{ 10, 20, "red" };
+  // Rectangle second = first;
+  // showRectangle(first);
 
   // rectangle.setWidth(10);
   // rectangle.setHeight(20);
