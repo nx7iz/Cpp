@@ -2,32 +2,16 @@
 
 using namespace std;
 
-class Book {
+class Student {
 public:
-  string title;
-  string author;
-  
-  Book(string title, string author) {
-    cout << "Parameterized constructor called" << endl;
-    this->title = title;
-    this->author = author;
-    cout << "Title: " << title << ", Author: " << author << endl;
-  }
-  
-  Book (Book& source) {
-    cout << "Copy constructor called" << endl;
-    this->title = source.title;
-    this->author = source.author;
-  }
-  
-  void displayDetails() {
+
+  Student() {
+    cout << "No-arugment constructor called" << endl;
   }
 };
 
 int main() {
-  Book book("In Cold Blood", "Truman Capote");
-  // book.displayDetails();
-  Book book2 = book;
+  Student student1;
 }
 
 
@@ -35,24 +19,24 @@ int main() {
 
 
 // // 1. Default Constructor
-// class Book {
+// class Student {
 // public:
 
 // };
 
 // int main() {
-//   Book name;
+//   Student name;
 //   cout << "Done" << endl;
 // }
 
 
 // // 2. Parameterized constructor
-// class Book {
+// class Student {
 // public:
 //   string name;
 //   int modelYear;
 
-//   Book (string name, int modelYear) {
+//   Student (string name, int modelYear) {
 //     this->name = name;
 //     this->modelYear = modelYear;
 //   }
@@ -63,41 +47,41 @@ int main() {
 // };
 
 // int main() {
-//   Book info("BMW", 2019);
+//   Student info("BMW", 2019);
 //   // cout << "Brand: " << info.name << "\nModel: " << info.modelYear << endl;
 //   info.display();
 // }
 
 
 // // 3. No-Argument constructor
-// class Book {
+// class Student {
 // public:
 //   string name;
 //   int modelYear;
 
-//   Book () {
+//   Student () {
 //     cout << "Brand: " << name << "\nModel: " << modelYear << endl; 
 //   }
 
 // };
 
 // int main() {
-//   Book info;
+//   Student info;
 
 // }
 
 // // 4. Copy constructor
-// class Book {
+// class Student {
 // public:
 //   string name;
 //   int modelYear;
 
-//   Book (string a, int y) {
+//   Student (string a, int y) {
 //     name = a;
 //     modelYear = y;
 //   }
 //   // Copy constructor
-//   Book (Book &obj) {
+//   Student (Student &obj) {
 //     name = obj.name;
 //     modelYear = obj.modelYear;
 //   }
@@ -108,8 +92,8 @@ int main() {
 // };
 
 // int main() {
-//   Book info("Pagani", 2019);
-//   Book info2 = info;
+//   Student info("Pagani", 2019);
+//   Student info2 = info;
 //   info.display();
 //   info2.display();
 // }
