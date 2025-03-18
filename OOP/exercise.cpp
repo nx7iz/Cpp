@@ -7,6 +7,7 @@ public:
   string getValue() {
     return value;
   }
+
   void setValue(const string& value) {
     this->value = value;
   }
@@ -27,6 +28,5 @@ int main() {
   TextBox textBox("Hello World");
   // textBox.setValue("Hello World");
   cout << textBox.getValue();
-
 
 }
