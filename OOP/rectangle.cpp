@@ -62,18 +62,24 @@ void draw() {
     setWidth(width);
     setHeight(height);
   }
+  Rectangle (int width, int height, string color) : Rectangle(width, height) {
+    cout << "Constructing a rectangle with color" << endl;
+    this->color = color;
+  }
 
 private:
   int width = 0;
   int height = 0;
+  string color;
 
 }; 
 
 int main() {
-  Rectangle rectangle;
+  // Rectangle rectangle1(10, 20);
+  Rectangle rectangle2(8, 7, "blue");
   // rectangle.setWidth(8); 
   // rectangle.setHeight(15);
-  cout << "Rectangle: " << rectangle.getWidth(); 
+  // cout << "Rectangle: " << rectangle1.getWidth(); 
 }
 
 // class Rectangle {
