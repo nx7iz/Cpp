@@ -2,27 +2,37 @@
 
 using namespace std;
 
-class Car {
+class Student {
 public:
+  string name;
+  int age;
+  static int count;
+  static string universityName;
 
-  Car (string brand) {
-    this->brand = brand;
+  Student (string name, int age) {
+    this->name = name;
+    this->age = age;
+    count++;
   }
 
-  string getbrand() {
-    return brand;
+  static void displayUniversityDetails() {
+    cout << "University name: " << universityName << endl
+         << "Students: " << count << endl;
   }
-  
-  void display() {
-    cout << "Brand: " << brand << endl;
+  void details() {
+    cout << "Student: " << count << endl
+         << "Name: " << name << endl
+         << "Age: " << age <<  endl;
   }
-
-private:
-  string brand;
 };
 
+string Student::universityName = "Oblivion Bench III";
+int Student::count = 0;
+
 int main() {
-  Car car("BMW");
-  cout << car.getbrand();
-  // car.display();
-}
+  Student student1("Arceus", 21);
+  student1.details();
+  Student student2("Liqx", 30);
+  Student::displayUniversityDetails(); 
+  student2.details();
+} 
