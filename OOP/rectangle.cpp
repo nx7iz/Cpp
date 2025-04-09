@@ -66,6 +66,9 @@ void draw() {
     cout << "Constructing a rectangle with color" << endl;
     this->color = color;
   }
+  ~Rectangle() {
+    cout << "Destructor called" << endl;
+  }
 
 private:
   int width = 0;
