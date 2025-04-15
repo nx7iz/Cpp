@@ -1,12 +1,81 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-     int array[] = {5, 10, 15, 20, 25};
-     cout<<array<<endl;
-     cout<<*array<<endl;
-      
+class Employee {
+private:
+    const int empID;
+    string name;
+    int individualAttendance;
+    static int totalAttendance;  // Static counter for all check-ins
 
+public:
+    // Parameterized constructor
+    Employee(int id, string n) 
+        : empID(id), name(n), individualAttendance(0) {}
+
+    // Destructor
+    ~Employee() {
+        cout << "Employee " << empID << " (" << name << ") record is being removed." << endl;
+    }
+
+    // Mark attendance (non-const function)
+    void markAttendance() {
+        individualAttendance++;
+        totalAttendance++;
+        cout << name << " (ID: " << empID << ") checked in." << endl;
+    }
+
+    // View record (const function)
+    void viewRecord() const {
+        cout << "\n----- Employee Record -----" << endl;
+        cout << "ID: " << empID << endl;
+        cout << "Name: " << name << endl;
+        cout << "Individual Attendance: " << individualAttendance << endl;
+        cout << "--------------------------" << endl;
+    }
+
+    // Static function to get total attendance
+    static int getTotalAttendance() {
+        return totalAttendance;
+    }
+};
+
+// Initialize static member
+int Employee::totalAttendance = 0;
+
+int main() {
+    cout << "Starting Employee Attendance System...\n";
+    cout << "Initial total check-ins: " << Employee::getTotalAttendance() << "\n\n";
+
+    // Create employees
+    Employee emp1(101, "John Doe");
+    Employee emp2(102, "Jane Smith");
+    Employee emp3(103, "Mike Johnson");
+
+    // Simulate work week
+    cout << "\n--- Monday ---" << endl;
+    emp1.markAttendance();
+    emp2.markAttendance();
+    emp3.markAttendance();
+
+    cout << "\n--- Tuesday ---" << endl;
+    emp1.markAttendance();
+    emp3.markAttendance();
+
+    cout << "\n--- Wednesday ---" << endl;
+    emp2.markAttendance();
+    emp3.markAttendance();
+
+    // View records
+    emp1.viewRecord();
+    emp2.viewRecord();
+    emp3.viewRecord();
+
+    cout << "\nTotal check-ins across all employees: " 
+         << Employee::getTotalAttendance() << endl;
+
+    cout << "\nSystem shutting down..." << endl;
     return 0;
 }
 
