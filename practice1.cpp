@@ -114,5 +114,4 @@ int main() {
   
   cout << "Reorder level: ";
   s1.checkReorderLevel();
-    
 }
