@@ -27,6 +27,27 @@ void pop() {
     delete temp;
 }
 
+int peek() {
+    if(top == NULL) {
+        cout << "Stack is empty " << endl;
+        return -1;
+    }
+    return top->data;
+}
+
+void display() {
+    if(top == NULL) {
+        cout << "Stack is empty" << endl;
+        return;
+    }
+    Node* current = top;
+    while(current != NULL) {
+        cout << current->data << " ";
+        current = current->next;
+    }
+    cout << endl;
+}
+
 int main() {
     pop();
     push(42124);
